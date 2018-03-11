@@ -34,6 +34,15 @@ echo "请输入密码"
 read shadowsockspwd
 echo "请输入加密方式"
 read method
+echo "请输入 protocol"
+read protocol
+echo "请输入 protocol_param"
+read protocol_param
+echo "请输入 obfs"
+read obfs
+echo "请输入 obfs_param （更多参数请在 /etc/shadowsocks.json 中设置）"
+read obfs_param
+
 
 # Config shadowsocks
 cat > /etc/shadowsocks.json<<-EOF
@@ -44,7 +53,11 @@ cat > /etc/shadowsocks.json<<-EOF
   "local_port":1081,
   "password":"${shadowsockspwd}",
   "timeout":600,
-  "method":"${method}"
+  "method":"${method}",
+  "protocol":"${protocol}",
+  "protocol_param":"${protocol_param}",
+  "obfs":"${obfs}",
+  "obfs_param":"${obfs_param}"
 }
 EOF
 
