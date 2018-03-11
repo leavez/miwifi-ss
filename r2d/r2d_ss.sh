@@ -11,13 +11,36 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 cd /userdisk/data/
-rm -f shadowsocks_miwifi.tar.gz
-curl https://raw.githubusercontent.com/blademainer/miwifi-ss/master/r2d/shadowsocks_miwifi.tar.gz -o shadowsocks_miwifi.tar.gz
-tar zxf shadowsocks_miwifi.tar.gz
+
+# setup the ssr
+rm -f ssr-bin.zip
+curl https://raw.githubusercontent.com/leavez/miwifi-ss/master/r2d/bin.zip -o ssr-bin.zip
+unzip ssr-bin.zip
+rm ssr-bin.zip
+
+mv bin .shadowsocksR
+chmod +x .shadowsocksR/* 
+
+add_to_file_if_needed(){
+  result=$(grep -c "$1" $2)
+  if [ "$result" -eq 0 ] ; then
+      echo "$1" >> $2
+  fi
+} 
+add_to_file_if_needed 'export PATH=/userdisk/data/.shadowsocksR:$PATH'  /etc/profile
+add_to_file_if_needed 'export LD_LIBRARY_PATH=/userdisk/data/.shadowsocksR:$LD_LIBRARY_PATH'  /etc/profile
+
 
 # Config shadowsocks init script
+rm -f shadowsocks_miwifi.tar.gz
+curl https://raw.githubusercontent.com/leavez/miwifi-ss/master/r2d/shadowsocks_miwifi.tar.gz -o shadowsocks_miwifi.tar.gz
+tar zxf shadowsocks_miwifi.tar.gz
+
 cp ./shadowsocks_miwifi/myshadowsocks /etc/init.d/myshadowsocks
 chmod +x /etc/init.d/myshadowsocks
+
+
+
 
 #config setting and save settings.
 echo "#############################################################"
