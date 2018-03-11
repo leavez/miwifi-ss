@@ -40,6 +40,14 @@ cp ./shadowsocks_miwifi/myshadowsocks /etc/init.d/myshadowsocks
 chmod +x /etc/init.d/myshadowsocks
 
 
+# download update gfwlist tool
+curl https://raw.githubusercontent.com/leavez/miwifi-ss/master/update_gfw_list_tool.zip -o update_gfw_list_tool.zip
+unzip update_gfw_list_tool.zip
+rm update_gfw_list_tool.zip
+mv update_gfw_list_tool /userdisk/data/.shadowsocksR/update_gfw_list_tool
+chmod +x /userdisk/data/.shadowsocksR/update_gfw_list_tool/update_rules.sh
+chmod +x /userdisk/data/.shadowsocksR/update_gfw_list_tool/gfwlist2dnsmasq.sh
+
 
 
 #config setting and save settings.
@@ -98,6 +106,7 @@ echo "iptables -t nat -A PREROUTING -p tcp -m set --match-set gfwlist dst -j RED
 /etc/init.d/firewall restart
 /etc/init.d/myshadowsocks start
 /etc/init.d/myshadowsocks enable
+
 
 #install successfully
 rm -rf /userdisk/data/shadowsocks_miwifi

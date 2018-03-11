@@ -24,6 +24,15 @@ chmod +x /data/usr/sbin/ss-redir
 cp ./shadowsocks_r3/shadowsocks /etc/init.d/shadowsocks
 chmod +x /etc/init.d/shadowsocks
 
+# download update gfwlist tool
+curl https://raw.githubusercontent.com/leavez/miwifi-ss/master/update_gfw_list_tool.zip -o update_gfw_list_tool.zip
+unzip update_gfw_list_tool.zip
+rm update_gfw_list_tool.zip
+mkdir /userdisk/data/.shadowsocksR
+mv update_gfw_list_tool /userdisk/data/.shadowsocksR/update_gfw_list_tool
+chmod +x /userdisk/data/.shadowsocksR/update_gfw_list_tool/update_rules.sh
+chmod +x /userdisk/data/.shadowsocksR/update_gfw_list_tool/gfwlist2dnsmasq.sh
+
 #config setting and save settings.
 echo "#############################################################"
 echo "#"
