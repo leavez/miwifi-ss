@@ -11,8 +11,8 @@ echo "*                                                       *"
 echo "*********************************************************"
 echo "                                                         "
 echo "请选择需要的操作（按下对应数字后回车确认）"
-echo "1：安装r1d&r2d版SS插件"
-echo "2：卸载r1d&r2d版SS插件"
+echo "1：安装r1d&r2d版SSR插件"
+echo "2：卸载r1d&r2d版SSR插件"
 echo "3：安装mini版ss插件"
 echo "4：卸载mini版ss插件"
 echo "5：安装r3版ss插件"
@@ -24,7 +24,7 @@ if [ "${num}" == "1" ]
 then
 cd /tmp
 rm -rf *.sh
-curl https://raw.githubusercontent.com/blademainer/miwifi-ss/master/r2d/r2d_ss.sh -o r2d_ss.sh
+curl https://raw.githubusercontent.com/leavez/miwifi-ss/master/r2d/r2d_ss.sh -o r2d_ss.sh
 chmod -R 777 r2d_ss.sh
 ./r2d_ss.sh
 fi
@@ -32,7 +32,7 @@ if [ "${num}" == "2" ]
 then
 cd /tmp
 rm -rf *.sh
-curl https://raw.githubusercontent.com/blademainer/miwifi-ss/master/r2d/r2d_uninstall.sh -o r2d_uninstall.sh
+curl https://raw.githubusercontent.com/leavez/miwifi-ss/master/r2d/r2d_uninstall.sh -o r2d_uninstall.sh
 chmod -R 777 r2d_uninstall.sh
 ./r2d_uninstall.sh
 fi
@@ -42,7 +42,7 @@ if [ "${num}" == "3" ]
 then
 cd /tmp
 rm -rf *.sh
-curl https://raw.githubusercontent.com/blademainer/miwifi-ss/master/mini/mini_ss.sh -o mini_ss.sh
+curl https://raw.githubusercontent.com/leavez/miwifi-ss/master/mini/mini_ss.sh -o mini_ss.sh
 chmod -R 777 mini_ss.sh
 ./mini_ss.sh
 fi
@@ -51,7 +51,7 @@ if [ "${num}" == "4" ]
 then
 cd /tmp
 rm -rf *.sh
-curl https://raw.githubusercontent.com/blademainer/miwifi-ss/master/mini/mini_uninstall.sh -o mini_uninstall.sh
+curl https://raw.githubusercontent.com/leavez/miwifi-ss/master/mini/mini_uninstall.sh -o mini_uninstall.sh
 chmod -R 777 mini_uninstall.sh
 sh mini_uninstall.sh
 fi
@@ -60,7 +60,7 @@ if [ "${num}" == "5" ]
 then
 cd /tmp
 rm -rf *.sh
-curl https://raw.githubusercontent.com/blademainer/miwifi-ss/master/r3/r3_ss.sh -o r3_ss.sh
+curl https://raw.githubusercontent.com/leavez/miwifi-ss/master/r3/r3_ss.sh -o r3_ss.sh
 chmod -R 777 r3_ss.sh
 ./r3_ss.sh
 fi
@@ -69,7 +69,7 @@ if [ "${num}" == "6" ]
 then
 cd /tmp
 rm -rf *.sh
-curl https://raw.githubusercontent.com/blademainer/miwifi-ss/master/r3/r3_uninstall.sh -o r3_uninstall.sh
+curl https://raw.githubusercontent.com/leavez/miwifi-ss/master/r3/r3_uninstall.sh -o r3_uninstall.sh
 chmod -R 777 r3_uninstall.sh
 sh r3_uninstall.sh
 fi
